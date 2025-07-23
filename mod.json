@@ -1,0 +1,8 @@
+{
+  "name": "Test Mod",
+  "version": "1.0",
+  "author": "Aphoenicis",
+  "description": "This is a test mod",
+  "mainPck": "test.pck",
+  "mainAssembly": "ChessTestMod.dll"
+}

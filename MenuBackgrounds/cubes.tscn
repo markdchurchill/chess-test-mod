@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7811055263wl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go610"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_m4bn5"]
+sky_material = SubResource("ProceduralSkyMaterial_go610")
+
+[sub_resource type="Environment" id="Environment_nva6w"]
+background_mode = 2
+sky = SubResource("Sky_m4bn5")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pn0ji"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f10wc"]
+
+[node name="Cubes" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nva6w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+material_override = SubResource("StandardMaterial3D_pn0ji")
+mesh = SubResource("BoxMesh_f10wc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.851992, 0, -0.523555, 0, 1, 0, 0.523555, 0, 0.851992, 1.38588, 0.4, -0.87518)
+material_override = SubResource("StandardMaterial3D_pn0ji")
+mesh = SubResource("BoxMesh_f10wc")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.851992, 0, -0.523555, 0, 1, 0, 0.523555, 0, 0.851992, 0.385881, 1.4, -0.87518)
+material_override = SubResource("StandardMaterial3D_pn0ji")
+mesh = SubResource("BoxMesh_f10wc")
+
+[node name="MainMenu" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.950732, 0.310013, 0, -0.310013, 0.950732, 0, 2.12954, 3)
+
+[node name="Settings" type="Marker3D" parent="."]
+transform = Transform3D(0.861833, -0.157236, 0.482204, 0, 0.950732, 0.310013, -0.507192, -0.267179, 0.819372, 4.45804, 2.12954, 3)
+
+[node name="AutoCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.861833, -0.157236, 0.482204, 0, 0.950732, 0.310013, -0.507192, -0.267179, 0.819372, 4.45804, 2.12954, 3)
