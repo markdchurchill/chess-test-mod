@@ -1,19 +1,19 @@
-<Project Sdk="Godot.NET.Sdk/4.4.0">
+<Project Sdk="Godot.NET.Sdk/4.5.0">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <PropertyGroup>
-    
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="SimpleChess">
-        <!-- Use the DLL from the Steam build -->
-      <HintPath>..\simplechess\SteamBuild\content\data_SimpleChess_windows_x86_64\SimpleChess.dll</HintPath>
+      <!-- Use the DLL from the Steam build -->
+      <HintPath Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\Chess Definitive Edition\data_SimpleChess_windows_x86_64')">C:\Program Files (x86)\Steam\steamapps\common\Chess Definitive Edition\data_SimpleChess_windows_x86_64\SimpleChess.dll</HintPath>
+      <!-- Works on my machine! -->
+      <HintPath Condition="Exists('..\simplechess')">..\simplechess\SteamBuild\content\data_SimpleChess_windows_x86_64\SimpleChess.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="build.ps1" />
     <Content Include="mod.json" />
   </ItemGroup>
 </Project>
